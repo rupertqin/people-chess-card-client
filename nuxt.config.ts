@@ -25,32 +25,18 @@ const browserBaseURL = `${BROWSER_BASE_HOST}/api/xz/mg`;
 console.log(`BROWSER_BASE_HOST: ${BROWSER_BASE_HOST}`);
 
 // 开发环境不加载这些
-const scripts: any = NODE_ENV === 'development' ? [] : [{
-  src    : 'https://cdn.bootcss.com/babel-polyfill/7.6.0/polyfill.js',
-  charset: 'utf-8',
-  type   : 'text/javascript',
-  async  : true,
-}];
-
-scripts.push(...[{
-  src    : `https://at.alicdn.com/t/${FONT_PROJECCT_ID}.js`,
-  charset: 'utf-8',
-}]);
+const scripts = [];
 
 export default {
-  // mode: 'spa',
+  mode: 'spa',
 
   /*
   ** Headers of the  page
   */
   head: {
-    title: '薪智-薪酬报告_调研_薪酬体系_调薪_薪酬绩效_薪酬分析',
+    title: '人民智力竞技',
     meta : [{
       charset: 'utf-8',
-    },
-    {
-      name   : 'keywords',
-      content: '薪智,薪酬报告,薪酬体系,调薪,薪酬绩效,薪酬分析',
     },
     {
       'http-equiv': 'X-UA-Compatible',

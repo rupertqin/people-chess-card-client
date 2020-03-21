@@ -12,6 +12,7 @@ declare global {
     onNuxtReady: any;
     location: Location;
     wx: any;
+    Swiper: any;
   }
 
 
