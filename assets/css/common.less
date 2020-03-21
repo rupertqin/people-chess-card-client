@@ -1,0 +1,610 @@
+@import './variable.less';
+@fontfamily: DIN Alternate, Helvetica Neue, Helvetica, PingFang SC, Microsoft YaHei, Tahoma, Arial;
+
+/**
+ *  loop font-size
+ */
+input[type=search]::-webkit-search-cancel-button {
+  -webkit-appearance: none; //此处去掉默认的小×
+}
+
+input::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: @grey;
+  font-size: 14px;
+  // line-height: 4.4rem;
+}
+
+.loop-font-size(@i) when (@i > 5) {
+  .f@{i} {
+    font-size: @i * 0.1rem;
+  }
+
+  .loop-font-size((@i - 1));
+}
+
+.loop-font-size(100);
+
+/**
+ *  loop margin-bottom
+ */
+.loop-margin-bottom(@i) when (@i > 0) {
+  .mb@{i} {
+    margin-bottom: @i * 0.1rem;
+  }
+
+  .loop-margin-bottom((@i - 1));
+}
+
+.mb10 {
+  margin-bottom: 1rem;
+}
+
+.loop-margin-bottom(100);
+
+.ml20 {
+  margin-left: 2rem;
+}
+
+.ml16 {
+  margin-left: 1.6rem;
+}
+
+.mb20 {
+  margin-bottom: 2rem
+}
+
+button .icon-icongo {
+  vertical-align: sub;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #333333;
+  font-weight: 600;
+  margin: 0;
+}
+
+.f10 {
+  font-size: 1rem;
+  transform: scale(0.83);
+}
+
+.golden-top {
+  border-top: 0.2rem solid @yellow;
+  display: inline-block;
+  padding-top: 0.2em;
+  line-height: 1.7rem;
+}
+
+.input {
+  border-radius: 2.2rem;
+  border: 1px solid #f1f1f1;
+  font-size: 1.4rem;
+  outline: none;
+  box-shadow: none;
+  -webkit-appearance: none;
+
+}
+
+
+
+.color-fff {
+  color: #fff;
+}
+
+.svg-icon {
+  height: 40px;
+  width: 40px;
+}
+
+.color-666 {
+  color: #666;
+}
+
+.color-dark-blue {
+  color: @darkBlue;
+}
+
+.color-999 {
+  color: #999;
+}
+
+.svg-icon {
+  // width: 1em;// height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+
+// 100/414
+// html{font-size: (100/414)*10vw}
+html,
+body {
+  font-family: @fontfamily;
+  font-weight: 400;
+  color: #333;
+  width: 100%;
+  height: 100%;
+  font-size: 10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.body-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  &.lock {
+    overflow: hidden;
+  }
+}
+
+.container {
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+.fontM {
+  font-family: @fontMedium;
+}
+
+.fontB {
+  font-family: @fontBold;
+}
+
+.ant-card {
+  font-family: @fontfamily;
+}
+
+textarea,
+input {
+  background: none;
+  outline: none;
+  border: none;
+}
+
+li {
+  list-style: none;
+}
+
+a,
+a:focus {
+  text-decoration: none;
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.5s;
+}
+
+.page-enter,
+.page-leave-active {
+  opacity: 0.1;
+}
+
+.bg-white {
+  background-color: #fff !important;
+}
+
+.goldenbg,
+.goldenbg:hover {
+  background: @yellow  !important;
+  color: #fff !important;
+  border-color: @yellow;
+}
+
+.goldencolor {
+  color: @yellow;
+}
+
+.btn-ccc {
+  background: rgba(204, 204, 204, .5);
+  color: #999999;
+}
+
+.colormain {
+  color: #343F99;
+}
+
+.color-ccc {
+  color: #ccc;
+}
+
+p {
+  margin: 0;
+}
+
+.fb600 {
+  font-weight: 600;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.ellapse {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ellapse-2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.ellapse-3 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+.ellapse-4 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+}
+
+input::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: @grey;
+}
+
+svg:focus {
+  outline: none;
+}
+
+.input {
+
+  input {
+    background: rgba(244, 244, 244, 1);
+    color: #333333;
+
+    &:focus {
+      background: rgba(255, 255, 255, .5) !important;
+      border: 0.1rem solid rgba(52, 63, 153, 1) !important;
+      caret-color: #333333;
+    }
+  }
+}
+
+a.color-fff {
+  color: #fff;
+}
+
+.fr {
+  float: right;
+}
+
+.fl {
+  float: left;
+}
+
+.padding20 {
+  padding: 2rem;
+}
+
+.btn {
+  height: 4.4rem;
+  padding: 1rem 2.6rem;
+  font-size: 1.4rem;
+
+  outline: none;
+  border: 0;
+  border-radius: 2.2rem;
+  margin: 0.5rem;
+
+  .font_family {
+    font-size: 2rem;
+    margin-left: 1rem;
+    border-radius: 2.5rem;
+  }
+}
+
+.btn-l {
+  height: 4.4rem;
+
+}
+
+.btn-yellow {
+  background: @yellow;
+  color: #fff;
+}
+
+.btn-white {
+  background-color: #fff;
+  color: #343F99;
+}
+
+.bgmain {
+  background-color: #343f99 !important;
+}
+
+.btn-transparent {
+  background-color: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+.btn-opcity {
+  background-color: rgba(0, 0, 0, 0.19);
+  color: #fff;
+
+}
+
+.van-button {
+  .font_family {
+    vertical-align: -.125em;
+  }
+}
+
+.btn-link.van-button--default {
+  background-color: transparent;
+  border: none;
+  color: @white;
+}
+
+// 滑动底部
+.section-padding {
+  // padding: 4rem  1.6rem;
+  padding: 4rem 1.6rem;
+}
+
+.van-swipe__indicators {
+  bottom: 0 !important;
+
+  .van-swipe__indicator {
+    width: 1rem;
+    height: 1rem;
+    background: #f1f1f1;
+    border-radius: 0.5rem;
+    opacity: 0.5;
+  }
+
+  .van-swipe__indicator--active {
+    width: 4rem;
+    opacity: 1;
+  }
+}
+
+.van-dialog__message {
+  line-height: 2.5rem !important;
+  color: #666;
+
+  a {
+    color: #666;
+  }
+}
+
+.van-button--small {
+  height: 3.6rem;
+}
+
+.van-dialog__header {
+  font-weight: bold !important;
+  font-size: 1.6rem !important;
+}
+
+.van-button--default {
+  border-radius: 6px;
+  border: 1px solid rgba(241, 241, 241, 1);
+  color: #333;
+  font-size: 1.4rem;
+}
+
+.advertise {
+  padding: 0 1.6rem 4rem;
+
+  .advertise-card {
+    width: 100%;
+    height: 20rem;
+    background: url(https://salary-file.peoplus.cn/web-img/unregistered/advise-bg.png) no-repeat 100% 100%;
+    color: #fff;
+    border-radius: 1rem;
+    padding: 2rem;
+
+    h1 {
+      color: #fff;
+      line-height: 2.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .advertise-btns {
+      margin-top: 5.1rem;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 0.6rem;
+
+      .van-button {
+        width: 16rem;
+      }
+
+      .van-button--primary {
+        color: #343F99;
+        background: #fff;
+        border: 1px solid #fff;
+      }
+
+      .van-button {
+        .van-button__text {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          .font_family {
+            margin-left: 1rem;
+            font-size: 1.8rem;
+          }
+        }
+
+        height: 4.4rem;
+        border-radius: 2.2rem;
+      }
+
+      .van-button--default {
+        background-color: rgba(0, 0, 0, 0);
+        border: 0.1rem solid rgba(255, 255, 255, 1);
+        color: #fff;
+      }
+    }
+
+    p {
+      line-height: 1.7rem;
+      color: rgba(255, 255, 255, 0.8);
+    }
+  }
+}
+
+.btn-blue {
+  width: 100%;
+  background: rgba(52, 63, 153, 1);
+  color: #fff;
+}
+
+// 下拉文字颜色
+.van-dropdown-item,
+.van-dropdown-menu {
+  .van-dropdown-item__option {
+    color: @gray-7;
+  }
+
+  .van-icon-success::before {
+    display: none;
+  }
+
+  .van-dropdown-menu__title--active,
+  .van-dropdown-item__option--active {
+    color: @gray-8;
+    font-weight: bold;
+  }
+}
+
+.van-cell__value {
+  flex: 2;
+}
+
+.van-tree-select__item {
+  font-weight: normal;
+}
+
+.van-tree-select__nav-item {
+  border: none;
+  text-align: center;
+  background-color: #f1f1f1;
+  line-height: 5rem;
+  padding: 0;
+}
+
+.van-sidebar-item--select {
+  background-color: #fff;
+}
+
+.van-tree-select__nav {
+  width: 38%;
+  flex: none;
+}
+
+.van-tree-select__content {
+  padding-left: 4rem;
+}
+
+.van-tree-select {
+  .van-ellipsis {
+    line-height: 5rem;
+    padding: 0;
+    color: #666666;
+    font-weight: normal;
+    border-bottom: 1px solid #f1f1f1;
+
+    &:hover {
+      color: #333;
+    }
+  }
+
+  .van-tree-select__item--active {
+    font-weight: 700;
+    color: @gray-8;
+  }
+
+  .van-tree-select__item--disabled {
+    color: #ccc;
+
+    &:hover {
+      color: #ccc;
+    }
+  }
+}
+
+.van-tree-select__selected {
+  display: none;
+}
+
+.van-action-sheet__item.active {
+  font-weight: bold;
+}
+
+//企业vip&&薪酬研究院
+.main-introduce {
+  padding: 8.4rem 3rem 0;
+  background-size: 100% 100%;
+
+  h4 {
+    font-size: 2.4rem;
+    line-height: 3.3rem;
+    margin-bottom: 1rem;
+    color: #fff;
+  }
+
+  .main-message {
+    opacity: 0.8;
+
+    p {
+      font-size: 1.2rem;
+      color: #fff;
+      line-height: 2rem;
+    }
+  }
+
+}
+
+
+.van-button.round {
+  border-radius: 50px;
+}
+
+.van-button.yellow {
+  background-color: @yellow;
+  border-color: @yellow;
+  color: @white;
+}
+
+.van-button.ghost {
+  background-color: rgba(0, 0, 0, 0);
+  border: 0.1rem solid #ffffff;
+  color: #fff;
+}
+
+.van-button.white {
+  color: @darkBlue;
+}
+
+// 可能是公共的样式 btn

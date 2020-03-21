@@ -1,0 +1,47 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "es2015",
+    "moduleResolution": "node",
+    "lib": [
+      "esnext",
+      "esnext.asynciterable",
+      "dom"
+    ],
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "noImplicitThis": false,
+    "allowJs": true,
+    "sourceMap": true,
+    "downlevelIteration": true,
+    "strict": false,
+    "noEmit": true,
+    "baseUrl": ".",
+    "outDir": "./typings/",
+    "paths": {
+      "~/*": [
+        "./*"
+      ],
+      "~~/*": [
+        "./*"
+      ],
+      "@/*": [
+        "./*"
+      ],
+      "@@/*": [
+        "./*"
+      ],
+    },
+    "types": [
+      "@types/node",
+      "@nuxt/types",
+      "@nuxt/vue-app",
+      "@nuxtjs/axios"
+    ]
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.vue"
+  ],
+  "exclude": [ "node_modules", ".nuxt", "dist" ]
+}
