@@ -399,42 +399,35 @@
         </div>
       </div>
     </footer>
-  </div>
-</template>
-
-<script lang="ts">
-import { Component, Vue } from 'nuxt-property-decorator';
-
-@Component
-export default class Example extends Vue {
-  mounted() {
-    new window.Swiper('.swiper-container', {
-      loop    : true, // 循环模式选项
+    <script>
+      var mySwiper = new Swiper ('.swiper-container', {
+      loop: true, // 循环模式选项
       autoplay: true,
-      delay   : 4000,
-      effect  : 'slide',
+      delay: 4000,
+      effect : 'slide',
 
       // 如果需要分页器
       pagination: {
-        el: '.swiper-pagination',
+      el: '.swiper-pagination',
       },
 
       // 如果需要前进后退按钮
       navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
       },
 
       // 如果需要滚动条
       scrollbar: {
-        el: '.swiper-scrollbar',
+      el: '.swiper-scrollbar',
       },
 
 
-    });
-  }
-}
-</script>
+      })
+    </script>
+  </div>
+</template>
 
-<style lang="less" scoped>
-</style>
+<script>
+export default { };
+</script>
