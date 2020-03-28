@@ -1,15 +1,15 @@
 {
-  "name": "ws-web-datacenter",
+  "name": "people-chess-card-client",
   "version": "1.0.0",
-  "description": "ws web datacenter",
+  "description": "people-chess-card-client",
   "dependencies": {
     "@nuxt/typescript-build": "^0.6.0",
     "@nuxt/typescript-runtime": "^0.4.0",
     "@nuxtjs/axios": "^5.9.5",
     "@nuxtjs/dotenv": "^1.4.1",
-    "@nuxtjs/sentry": "^3.3.1",
     "@types/lodash": "^4.14.144",
     "@types/webpack-dev-middleware": "2.0.3",
+    "ant-design-vue": "^1.4.12",
     "less": "^3.11.1",
     "less-loader": "^5.0.0",
     "lodash": "^4.17.15",
@@ -46,7 +46,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "ssh://git@gitlab.ersoft.cn:9006/smartsalary/ws-web-datacenter.git"
+    "url": "https://github.com/rupertqin/people-chess-card-client.git"
   },
   "author": "Rupert",
   "license": "ISC"

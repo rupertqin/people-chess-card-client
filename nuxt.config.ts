@@ -5,7 +5,7 @@ import dotenv from 'dotenv';
 
 // 设置 env
 dotenv.config();
-const { SENTRY_DSN, SENTRY_ENVIRONMENT, BROWSER_BASE_URL, FILE_URL, BASE_URL } = process.env;
+const { BROWSER_BASE_URL, FILE_URL, BASE_URL } = process.env;
 
 const defaultEnv = dotenv.parse(fs.readFileSync('.env.default'));
 for (const k in defaultEnv) {
@@ -67,6 +67,7 @@ export default {
   ** Global CSS
   */
   css    : [
+    'ant-design-vue/dist/antd.css',
     {
       src : '@/assets/css/common.less',
       lang: 'less',
@@ -77,6 +78,7 @@ export default {
   */
   plugins: [
     '@/plugins/axios',
+    '@/plugins/antd-ui',
   ],
   /*
   ** Nuxt.js dev-modules
@@ -94,20 +96,8 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
-    // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/sentry'
   ],
-
-  /**
-   * sentry
-   */
-  sentry: {
-    dsn   : SENTRY_DSN,
-    config: {
-      environment: SENTRY_ENVIRONMENT || os.hostname(),
-    },
-  },
 
   /*
   ** serverMiddleware
@@ -146,7 +136,6 @@ export default {
     BROWSER_BASE_HOST,
     FILE_URL,
     AXIOS_TIMEOUT: Number(AXIOS_TIMEOUT),
-    ENV          : SENTRY_ENVIRONMENT,
   },
 
   vue: {
@@ -172,7 +161,7 @@ export default {
    * Build configuration
    */
   build: {
-    publicPath: '/ws-web-datacenter/',
+    publicPath: '/web_client/',
     postcss   : {
       autoprefixer: {
         browsers: ['last 3 versions'],

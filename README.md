@@ -1,4 +1,4 @@
-# ws-web-datacenter
+# people chess card client
 
 # 1. reset
 $ rm -rf node_modules
