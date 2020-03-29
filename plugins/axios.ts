@@ -115,22 +115,6 @@ export default function ({ app, $axios, redirect, store, isDev }, inject) {
     const result: Result = {};
     const { data: { code, msg, result: resultData }, config: { url }, status } = response;
 
-    if (isDev) {
-      const { url, method, params, data } = response.config;
-    }
-
-    if (code === -5) {
-      if (process.browser) {
-        // 未登录
-        return logout(store);
-      } else {
-        store.dispatch('setError', { msg: 'error from axios dispatch', logout: true });
-      }
-
-      // PASSBY 为真不拦截错误
-    } else if (![0, 2, 5].includes(code) && response.config.params.PASSBY !== true) {
-      result.error = msg || '系统异常';
-    }
     if (result.error) {
       console.log(`
       ::Error::=> ${msg} ::
@@ -155,40 +139,7 @@ export default function ({ app, $axios, redirect, store, isDev }, inject) {
   });
 
   $axios.onError(({ code, config, request, response, isAxiosError }: any) => {
-    if (process.server && response.status === 403 && response.data.code === -5) {
-      store.dispatch('setError', { msg: 'error from axios dispatch', logout: true });
-    }
-    // code: "ECONNABORTED"
 
-    // loading
-    if (config.params.loading !== 'false' && process.browser) {
-      counter--;
-      if (counter <= 0) store.commit('END_LOADING');
-    }
-
-    let status = null;
-    if (response) {
-      status = parseInt(response && response.status);
-    }
-    if (status < 400) return;
-
-    // 未登录
-    if (status === 403) {
-      return logout(store);
-    }
-
-    if (process.browser) {
-    } else {
-      store.dispatch('setError', {
-        status,
-        url: config.url,
-      });
-    }
-
-    if (isAxiosError) {
-      store.dispatch('setError', { msg: 'error from axios dispatch' });
-      return console.log('timeout: ECONNABORTED: url:', config.url);
-    }
   });
 }
 

@@ -15,16 +15,10 @@
               <a href="newsdetail_dongtai_a_09.html"><img src="img/temporary/index_bigbanner_2.jpg"></a>
             </div>
           </div>
-          <!-- 分页器 -->
           <div class="swiper-pagination" />
-          <!-- 导航按钮 -->
-          <div class="swiper-button-prev" />
-          <div class="swiper-button-next" />
-          <!-- 滚动条 -->
-          <!-- <div class="swiper-scrollbar"></div> -->
+          <span class="swiper-button-prev" />
+          <span class="swiper-button-next" />
         </div>
-
-        <!-- scroll_banner over -->
 
         <div class="index_banner_box_r">
           <a href="newsdetail_a01.html">
@@ -67,43 +61,15 @@
             <div class="clearfix" />
 
             <div class="news_cont">
-              <a href="newsdetail_dongtai_a_01.html">
-                <div class="news_cont_name">谷歌正在开发安卓平台增量文件系统：游戏支持在下载过程中体验</div>
-                <div class="news_cont_time">2020-02-21</div>
-              </a>
-
-              <a href="newsdetail_dongtai_a_02.html">
-                <div class="news_cont_name">线上赛制实行，是KPL把游戏玩家导向电竞的际遇</div>
-                <div class="news_cont_time">2020-02-21</div>
-              </a>
-
-              <a href="newsdetail_dongtai_a_03.html">
-                <div class="news_cont_name">第十届全国出版物供应链论坛在京召开</div>
-                <div class="news_cont_time">2020-01-13</div>
-              </a>
-
-              <a href="newsdetail_dongtai_a_04.html">
-                <div class="news_cont_name">2019年全球游戏总收入1200亿美元</div>
-                <div class="news_cont_time">2020-01-07</div>
-              </a>
-
-
-              <a href="newsdetail_dongtai_a_05.html">
-                <div class="news_cont_name">游戏产业规范管理显成效 科技支撑促增长</div>
-                <div class="news_cont_time">2020-01-02</div>
-              </a>
-
-              <a href="newsdetail_dongtai_a_06.html">
-                <div class="news_cont_name">2019中国游戏产业年会未成年人守护分论坛召开</div>
-                <div class="news_cont_time">2019-12-05</div>
-              </a>
-
-              <a href="newsdetail_dongtai_a_07.html">
-                <div class="news_cont_name">我国正式发放5G商用牌照</div>
-                <div class="news_cont_time">2019-06-06</div>
-              </a>
+              <NLink v-for="(article, i) in news.热点资讯" :key="i" :to="`news/${article.id}`">
+                <div class="news_cont_name">
+                  {{ article.标题 }}
+                </div>
+                <div class="news_cont_time">
+                  {{ article.updated_at.slice(0,10) }}
+                </div>
+              </NLink>
             </div>
-
 
             <div class="s_block_title">
               <div class="s_block_title_name">
@@ -117,40 +83,14 @@
             <div class="clearfix" />
 
             <div class="news_cont">
-              <a href="newsdetail_dongtai_b_01.html">
-                <div class="news_cont_name">懒熊竞技二打一火爆上线！</div>
-                <div class="news_cont_time">2019-12-31</div>
-              </a>
-
-              <a href="newsdetail_dongtai_b_02.html">
-                <div class="news_cont_name">沃雷特“竞技二打一”华丽上线</div>
-                <div class="news_cont_time">2019-10-08</div>
-              </a>
-
-              <a href="newsdetail_dongtai_b_03.html">
-                <div class="news_cont_name">发展全民智力竞技 四川麻将超级联赛举办发布会</div>
-                <div class="news_cont_time">2019-05-06</div>
-              </a>
-
-              <a href="newsdetail_dongtai_b_04.html">
-                <div class="news_cont_name">竞技二打一人气飙升 六大亮点成为棋牌新宠</div>
-                <div class="news_cont_time">2018-03-20</div>
-              </a>
-
-              <a href="newsdetail_dongtai_b_05.html">
-                <div class="news_cont_name">"斗地主一百单八将"赴北京 首个全国冠军将诞生</div>
-                <div class="news_cont_time">2017-12-14</div>
-              </a>
-
-              <a href="newsdetail_dongtai_b_06.html">
-                <div class="news_cont_name">国民游戏头牌斗地主 迎来首个国字头联合赛事</div>
-                <div class="news_cont_time">2017-11-04</div>
-              </a>
-
-              <a href="newsdetail_dongtai_b_07.html">
-                <div class="news_cont_name">被列入智力竞技体育项目的「竞技二打一」和「斗地主」有什么区别?</div>
-                <div class="news_cont_time">2017-08-11</div>
-              </a>
+              <NLink v-for="(article, i) in news.产业动态" :key="i" :to="`news/${article.id}`">
+                <div class="news_cont_name">
+                  {{ article.标题 }}
+                </div>
+                <div class="news_cont_time">
+                  {{ article.updated_at.slice(0,10) }}
+                </div>
+              </NLink>
             </div>
           </div>
           <div class="clearfix" />
@@ -335,9 +275,9 @@
       </div>
     </div>
 
-    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/swiper.min.js"></script>
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js" />
+    <script type="text/javascript" src="js/bootstrap.min.js" />
+    <script type="text/javascript" src="js/swiper.min.js" />
     <script>
       var mySwiper = new Swiper ('.swiper-container', {
       loop: true, // 循环模式选项
@@ -367,6 +307,20 @@
   </div>
 </template>
 
-<script>
-export default { };
+<script lang="ts">
+import { Component, Vue } from 'nuxt-property-decorator';
+import groupBy from 'lodash/groupBy';
+import { getNews } from '@/api/article';
+
+@Component
+export default class Index extends Vue {
+  async asyncData() {
+    const data = await getNews();
+    if (data.error) return {};
+    const news = groupBy(data, 'type');
+    return {
+      news,
+    };
+  }
+}
 </script>
