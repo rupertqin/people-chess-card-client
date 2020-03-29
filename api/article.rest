@@ -2,3 +2,6 @@
 GET http://localhost:1337/information?type=
 accept: application/json
 
+### 
+GET http://localhost:1337/information/1
+accept: application/json
