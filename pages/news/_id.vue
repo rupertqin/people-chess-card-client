@@ -10,9 +10,7 @@
           {{ data.标题 }}
           <span>2017年01月07日</span>
         </div>
-        <div class="newsdetail_cont">
-          {{ data.content }}
-        </div>
+        <div class="newsdetail_cont" v-html="data.content" />
       </div>
     </div>
   </div>
@@ -20,6 +18,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator';
+import marked from 'marked';
 import { getOneNews } from '@/api/article';
 
 @Component({
@@ -31,6 +30,25 @@ import { getOneNews } from '@/api/article';
 export default class Index extends Vue {
   async asyncData({ params }) {
     const data = await getOneNews(params.id);
+    console.log(data);
+    marked.setOptions({
+      baseUrl     : process.env.FILE_URL,
+      breaks      : true,
+      gfm         : true,
+      headerIds   : true,
+      headerPrefix: '',
+      highlight   : null,
+      langPrefix  : 'language-',
+      mangle      : true,
+      pedantic    : false,
+      sanitize    : false,
+      sanitizer   : null,
+      silent      : false,
+      smartLists  : false,
+      smartypants : false,
+      xhtml       : false,
+    });
+    data.content = marked(data.content);
     return {
       data,
     };
