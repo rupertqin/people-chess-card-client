@@ -121,7 +121,7 @@
             <div class="clearfix" />
 
             <div class="news_cont">
-              <NLink v-for="(article, i) in sportNews.行业新闻" :key="i" :to="`news/${sportNews.id}`">
+              <NLink v-for="(article, i) in sportNews.行业新闻" :key="i" :to="`sportnews/${article.id}`">
                 <div class="news_cont_name">
                   {{ article.标题 }}
                 </div>
@@ -144,7 +144,7 @@
             <div class="clearfix" />
 
             <div class="news_cont">
-              <NLink v-for="(article, i) in sportNews.人民智力竞技" :key="i" :to="`news/${sportNews.id}`">
+              <NLink v-for="(article, i) in sportNews.人民智力竞技" :key="i" :to="`sportnews/${article.id}`">
                 <div class="news_cont_name">
                   {{ article.标题 }}
                 </div>
