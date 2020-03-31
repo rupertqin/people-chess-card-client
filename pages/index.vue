@@ -54,7 +54,7 @@
                 热点资讯
               </div>
               <div class="s_block_title_more">
-                <a href="newslist.html">MORE</a>
+                <a href="/news">MORE</a>
               </div>
             </div>
 
@@ -76,7 +76,7 @@
                 产业动态
               </div>
               <div class="s_block_title_more">
-                <a href="newslist.html">MORE</a>
+                <a href="/news">MORE</a>
               </div>
             </div>
 
