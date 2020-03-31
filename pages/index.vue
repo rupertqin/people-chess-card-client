@@ -121,38 +121,14 @@
             <div class="clearfix" />
 
             <div class="news_cont">
-              <a href="newsdetail_pvp_a_02.html">
-                <div class="news_cont_name">宏益杯棋协大师赛闭幕 杨宝森：希望越做越好</div>
-                <div class="news_cont_time">2019-08-04</div>
-              </a>
-
-              <a href="newsdetail_pvp_a_03.html">
-                <div class="news_cont_name">第四届星球杯全国少年儿童国跳棋王棋后赛落幕</div>
-                <div class="news_cont_time">2019-08-04</div>
-              </a>
-              <a href="newsdetail_pvp_a_04.html">
-                <div class="news_cont_name">亚布力迎接八方棋士 宏益杯继续执行精品路线</div>
-                <div class="news_cont_time">2019-07-31</div>
-              </a>
-              <a href="newsdetail_pvp_a_05.html">
-                <div class="news_cont_name">深圳福田象棋文化节之青少年国际邀请赛开幕</div>
-                <div class="news_cont_time">2019-07-29</div>
-              </a>
-
-              <a href="newsdetail_pvp_a_07.html">
-                <div class="news_cont_name">绍兴女子国象公开赛 李雪怡张岚琳双双获胜</div>
-                <div class="news_cont_time">2019-07-13</div>
-              </a>
-
-              <a href="newsdetail_pvp_a_08.html">
-                <div class="news_cont_name">女子公开赛举办超快棋副赛 突出娱乐意在推广</div>
-                <div class="news_cont_time">2019-07-12</div>
-              </a>
-
-              <a href="newsdetail_pvp_a_09.html">
-                <div class="news_cont_name">云南省定首届“招银杯”国际象棋邀请赛举行</div>
-                <div class="news_cont_time">2019-07-8</div>
-              </a>
+              <NLink v-for="(article, i) in sportNews.行业新闻" :key="i" :to="`news/${sportNews.id}`">
+                <div class="news_cont_name">
+                  {{ article.标题 }}
+                </div>
+                <div class="news_cont_time">
+                  {{ article.updated_at.slice(0,10) }}
+                </div>
+              </NLink>
             </div>
 
 
@@ -168,30 +144,14 @@
             <div class="clearfix" />
 
             <div class="news_cont">
-              <a href="newsdetail_pvp_b_01.html">
-                <div class="news_cont_name">2019CEST智力竞技板块岁末收官</div>
-                <div class="news_cont_time">2019-12-30</div>
-              </a>
-
-              <a href="newsdetail_pvp_b_05.html">
-                <div class="news_cont_name">第十二届中日韩文化产业论坛在韩国釜山举行</div>
-                <div class="news_cont_time">2019-11-15</div>
-              </a>
-
-              <a href="newsdetail_pvp_b_02.html">
-                <div class="news_cont_name">2019全国上网服务行业年会在安徽合肥举办</div>
-                <div class="news_cont_time">2019-03-29</div>
-              </a>
-
-              <a href="newsdetail_pvp_b_03.html">
-                <div class="news_cont_name">2018 CEST中国电子竞技娱乐大赛在安徽正式启动</div>
-                <div class="news_cont_time">2018-09-03</div>
-              </a>
-
-              <a href="newsdetail_pvp_b_04.html">
-                <div class="news_cont_name">微屏软件获CEST智力运动竞技比赛承办权 布局勾画智力竞技赛事蓝图</div>
-                <div class="news_cont_time">2018-05-08</div>
-              </a>
+              <NLink v-for="(article, i) in sportNews.人民智力竞技" :key="i" :to="`news/${sportNews.id}`">
+                <div class="news_cont_name">
+                  {{ article.标题 }}
+                </div>
+                <div class="news_cont_time">
+                  {{ article.updated_at.slice(0,10) }}
+                </div>
+              </NLink>
             </div>
           </div>
           <div class="clearfix" />
@@ -310,16 +270,18 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator';
 import groupBy from 'lodash/groupBy';
-import { getNews } from '@/api/article';
+import { getNews, getSportNews } from '@/api/article';
 
 @Component
 export default class Index extends Vue {
   async asyncData() {
-    const data = await getNews();
-    if (data.error) return {};
-    const news = groupBy(data, '类型');
+    let [news, sportNews] = await Promise.all([getNews(), getSportNews()]);
+    if (news.error) return {};
+    news = groupBy(news, '类型');
+    sportNews = groupBy(sportNews, '类型');
     return {
       news,
+      sportNews,
     };
   }
 }

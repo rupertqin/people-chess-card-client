@@ -1,7 +1,15 @@
 ###
-GET http://localhost:1337/information?type=
+GET http://localhost:1337/information
 accept: application/json
 
 ### 
 GET http://localhost:1337/information/1
+accept: application/json
+
+###
+GET http://localhost:1337/sportnews
+accept: application/json
+
+### 
+GET http://localhost:1337/sportnews/1
 accept: application/json
