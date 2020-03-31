@@ -114,7 +114,7 @@
                 行业新闻
               </div>
               <div class="s_block_title_more">
-                <a href="newslist_pvp.html">MORE</a>
+                <a href="/sportnews">MORE</a>
               </div>
             </div>
 
@@ -137,7 +137,7 @@
                 人民智力竞技
               </div>
               <div class="s_block_title_more">
-                <a href="newslist_pvp.html">MORE</a>
+                <a href="sportnews">MORE</a>
               </div>
             </div>
 
