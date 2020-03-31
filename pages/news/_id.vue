@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="nav_s">
-      <a href="index.html">人民网</a> >> <a href="newslist.html">{{ data.type }}</a> >> 新闻详情
+      <a href="index.html">人民网</a> >> <a href="newslist.html">{{ data.类型 }}</a> >> 新闻详情
     </div>
 
     <div class="newsdetail">
@@ -10,7 +10,7 @@
           {{ data.标题 }}
           <span>2017年01月07日</span>
         </div>
-        <div class="newsdetail_cont" v-html="data.content" />
+        <div class="newsdetail_cont" v-html="data.内容" />
       </div>
     </div>
   </div>
@@ -18,8 +18,8 @@
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator';
-import marked from 'marked';
 import { getOneNews } from '@/api/article';
+import { markdown } from '@/utils';
 
 @Component({
   validate({ params }) {
@@ -30,25 +30,7 @@ import { getOneNews } from '@/api/article';
 export default class Index extends Vue {
   async asyncData({ params }) {
     const data = await getOneNews(params.id);
-    console.log(data);
-    marked.setOptions({
-      baseUrl     : process.env.FILE_URL,
-      breaks      : true,
-      gfm         : true,
-      headerIds   : true,
-      headerPrefix: '',
-      highlight   : null,
-      langPrefix  : 'language-',
-      mangle      : true,
-      pedantic    : false,
-      sanitize    : false,
-      sanitizer   : null,
-      silent      : false,
-      smartLists  : false,
-      smartypants : false,
-      xhtml       : false,
-    });
-    data.content = marked(data.content);
+    data.内容 = markdown(data.内容);
     return {
       data,
     };

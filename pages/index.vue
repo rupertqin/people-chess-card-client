@@ -317,7 +317,7 @@ export default class Index extends Vue {
   async asyncData() {
     const data = await getNews();
     if (data.error) return {};
-    const news = groupBy(data, 'type');
+    const news = groupBy(data, '类型');
     return {
       news,
     };
