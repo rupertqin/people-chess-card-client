@@ -176,33 +176,13 @@
             </div>
             <div class="clearfix" />
             <div class="game_box">
-              <a href="products.html">
+              <a v-for="(product, i) in products" :key="i" href="products">
                 <div class="game_box_l">
-                  <img src="img/home_game_02.jpg" alt="">
+                  <img :src="FILE_URL + product.logo[0].url" alt="">
                 </div>
                 <div class="game_box_r">
-                  <div class="game_box_name">人民棋牌</div>
-                  <div class="game_box_desc">在人民棋牌平台上推出的第一批在线游戏包括台球游戏及中国象棋。人民棋牌平台专注于PC在线棋牌游戏，游戏分类有：麻将游戏、牌类游戏、棋类游戏、休闲游戏。</div>
-                </div>
-              </a>
-
-              <a href="products.html">
-                <div class="game_box_l">
-                  <img src="img/home_game_01.jpg" alt="">
-                </div>
-                <div class="game_box_r">
-                  <div class="game_box_name">掌心游</div>
-                  <div class="game_box_desc">随着智能手机的快速发展，过去由计算器执行的许多功能现在可以通过智能手机来实现，便携式智能手机 的小巧设计可以让人们随时随地上网玩在线游戏。</div>
-                </div>
-              </a>
-
-              <a href="products.html">
-                <div class="game_box_l">
-                  <img src="img/home_game_03.jpg" alt="">
-                </div>
-                <div class="game_box_r">
-                  <div class="game_box_name">掌心竞技</div>
-                  <div class="game_box_desc">掌心竞技项目是一款以广受欢迎的棋牌游戏为载体、主打多种比赛竞技模式为核心的竞技类棋牌休闲游戏，让玩家以打斗地主游戏或麻将游戏的方式，进行玩家之间的比赛竞技。</div>
+                  <div class="game_box_name">{{ product.名称 }}</div>
+                  <div class="game_box_desc">{{ product.描述 }}</div>
                 </div>
               </a>
             </div>
@@ -270,18 +250,21 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator';
 import groupBy from 'lodash/groupBy';
-import { getNews, getSportNews } from '@/api/article';
+import { getNews, getSportNews, getProducts } from '@/api/article';
 
 @Component
 export default class Index extends Vue {
+  FILE_URL = process.env.FILE_URL
+
   async asyncData() {
-    let [news, sportNews] = await Promise.all([getNews(), getSportNews()]);
+    let [news, sportNews, products] = await Promise.all([getNews(), getSportNews(), getProducts()]);
     if (news.error) return {};
     news = groupBy(news, '类型');
     sportNews = groupBy(sportNews, '类型');
     return {
       news,
       sportNews,
+      products: products.添加产品,
     };
   }
 }

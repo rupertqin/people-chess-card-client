@@ -23,3 +23,7 @@ export function getSportNews(type?) {
 export function getOneSportNews(id) {
   return global.$axios.$get(`sportnews/${id}`);
 }
+
+export function getProducts() {
+  return global.$axios.$get('product');
+}

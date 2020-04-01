@@ -13,3 +13,7 @@ accept: application/json
 ### 
 GET http://localhost:1337/sportnews/1
 accept: application/json
+
+### 
+GET http://localhost:1337/product
+accept: application/json
