@@ -171,12 +171,12 @@
                 产品矩阵
               </div>
               <div class="block_title_more">
-                <a href="products.html">MORE</a>
+                <a href="/products">MORE</a>
               </div>
             </div>
             <div class="clearfix" />
             <div class="game_box">
-              <a v-for="(product, i) in products" :key="i" href="products">
+              <a v-for="(product, i) in products" :key="i" href="/products">
                 <div class="game_box_l">
                   <img :src="FILE_URL + product.logo[0].url" alt="">
                 </div>

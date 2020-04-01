@@ -10,9 +10,9 @@
     <nav class="topnava">
       <ul>
         <li><a class="active" href="/">首页</a></li>
-        <li><a href="news">动态资讯</a></li>
-        <li><a href="sportnews">智力竞技</a></li>
-        <li><a href="products.html">产品矩阵</a></li>
+        <li><a href="/news">动态资讯</a></li>
+        <li><a href="/sportnews">智力竞技</a></li>
+        <li><a href="/products">产品矩阵</a></li>
       </ul>
     </nav>
   </div>
