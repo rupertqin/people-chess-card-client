@@ -17,3 +17,11 @@ accept: application/json
 ### 
 GET http://localhost:1337/product
 accept: application/json
+
+### 
+GET http://localhost:1337/fakes
+accept: application/json
+
+### 
+GET http://localhost:1337/pvprules
+accept: application/json

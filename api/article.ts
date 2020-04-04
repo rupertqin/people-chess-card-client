@@ -27,3 +27,13 @@ export function getOneSportNews(id) {
 export function getProducts() {
   return global.$axios.$get('product');
 }
+
+export enum ColumnType {
+  FAKE = 'fakes',
+  PVPRULE = 'pvprules',
+  CEST = 'cests'
+}
+
+export function getColumns(type: ColumnType = ColumnType.FAKE) {
+  return global.$axios.$get(type);
+}

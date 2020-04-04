@@ -192,19 +192,15 @@
 
 
           <div class="index_right_enter">
-            <a href="newslist_dajia.html">
+            <a href="/article-column?type=fakes">
               <img src="img/index_enter_01.jpg" alt="">
               <span>打假专栏</span>
             </a>
-            <!--          <a href="mailto.html">
-            <img src="img/index_enter_02.jpg" alt="">
-            <span>品牌查询</span>
-          </a> -->
-            <a href="newslist_pvprule.html">
+            <a href="/article-column?type=pvprules">
               <img src="img/index_enter_03.jpg" alt="">
               <span>智力竞技标准规范</span>
             </a>
-            <a href="newslist_cest.html">
+            <a href="/article-column?type=cests">
               <img src="img/index_enter_04.jpg" alt="">
               <span>CEST专题栏</span>
             </a>
