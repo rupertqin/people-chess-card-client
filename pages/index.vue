@@ -198,36 +198,6 @@
         <div class="clearfix" />
       </div>
     </div>
-
-    <script type="text/javascript" src="js/jquery-3.4.1.min.js" />
-    <script type="text/javascript" src="js/bootstrap.min.js" />
-    <script type="text/javascript" src="js/swiper.min.js" />
-    <script>
-      var mySwiper = new Swiper ('.swiper-container', {
-      loop: true, // 循环模式选项
-      autoplay: true,
-      delay: 4000,
-      effect : 'slide',
-
-      // 如果需要分页器
-      pagination: {
-      el: '.swiper-pagination',
-      },
-
-      // 如果需要前进后退按钮
-      navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-      },
-
-      // 如果需要滚动条
-      scrollbar: {
-      el: '.swiper-scrollbar',
-      },
-
-
-      })
-    </script>
   </div>
 </template>
 
@@ -236,7 +206,17 @@ import { Component, Vue } from 'nuxt-property-decorator';
 import groupBy from 'lodash/groupBy';
 import { getNews, getSportNews, getProducts, getSlider, getColumnbanner, getRightbanner } from '@/api/article';
 
-@Component
+@Component({
+  head() {
+    return {
+      script: [
+        { src: '/js/jquery-3.4.1.min.js'},
+        { src: '/js/bootstrap.min.js'},
+        { src: '/js/swiper.min.js'}
+      ],
+    };
+  },
+})
 export default class Index extends Vue {
   FILE_URL = process.env.FILE_URL
 
@@ -260,6 +240,33 @@ export default class Index extends Vue {
       columnbanner: columnbanner.pics,
       rightbanner : rightbanner.pics,
     };
+  }
+
+  mounted() {
+    new window.Swiper('.swiper-container', {
+      loop    : true, // 循环模式选项
+      autoplay: true,
+      delay   : 4000,
+      effect  : 'slide',
+
+      // 如果需要分页器
+      pagination: {
+        el: '.swiper-pagination',
+      },
+
+      // 如果需要前进后退按钮
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+
+      // 如果需要滚动条
+      scrollbar: {
+        el: '.swiper-scrollbar',
+      },
+
+
+    });
   }
 }
 </script>
