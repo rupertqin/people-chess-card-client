@@ -37,3 +37,7 @@ export enum ColumnType {
 export function getColumns(type: ColumnType = ColumnType.FAKE) {
   return global.$axios.$get(type);
 }
+
+export function getHeaderBanner() {
+  return global.$axios.$get('headerbanner');
+}
