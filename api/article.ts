@@ -41,3 +41,15 @@ export function getColumns(type: ColumnType = ColumnType.FAKE) {
 export function getHeaderBanner() {
   return global.$axios.$get('headerbanner');
 }
+
+export function getSlider() {
+  return global.$axios.$get('slider');
+}
+
+export function getColumnbanner() {
+  return global.$axios.$get('columnbanner');
+}
+
+export function getRightbanner() {
+  return global.$axios.$get('rightbanner');
+}

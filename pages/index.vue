@@ -8,11 +8,10 @@
 
         <div class="index_scroll_banner swiper-container">
           <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <a href="newsdetail_t09.html"><img src="img/temporary/index_bigbanner_1.jpg"></a>
-            </div>
-            <div class="swiper-slide">
-              <a href="newsdetail_dongtai_a_09.html"><img src="img/temporary/index_bigbanner_2.jpg"></a>
+            <div v-for="(pic, i) in slider" :key="i" class="swiper-slide">
+              <a :href="pic.链接">
+                <img :src="FILE_URL + pic.图片.url">
+              </a>
             </div>
           </div>
           <div class="swiper-pagination" />
@@ -21,11 +20,8 @@
         </div>
 
         <div class="index_banner_box_r">
-          <a href="newsdetail_a01.html">
-            <img src="img/temporary/index_sbanner_1.jpg" alt="">
-          </a>
-          <a href="newsdetail_dongtai_a_08.html">
-            <img src="img/temporary/index_sbanner_3.jpg" alt="">
+          <a v-for="(pic, i) in rightbanner" :key="i" :href="pic.链接">
+            <img :src="FILE_URL + pic.图片.url" alt="">
           </a>
         </div>
       </div>
@@ -178,7 +174,7 @@
             <div class="game_box">
               <a v-for="(product, i) in products" :key="i" href="/products">
                 <div class="game_box_l">
-                  <img :src="FILE_URL + product.logo[0].url" alt="">
+                  <img :src="FILE_URL + product.logo.url" alt="">
                 </div>
                 <div class="game_box_r">
                   <div class="game_box_name">{{ product.名称 }}</div>
@@ -192,17 +188,9 @@
 
 
           <div class="index_right_enter">
-            <a href="/article-column?type=fakes">
-              <img src="img/index_enter_01.jpg" alt="">
-              <span>打假专栏</span>
-            </a>
-            <a href="/article-column?type=pvprules">
-              <img src="img/index_enter_03.jpg" alt="">
-              <span>智力竞技标准规范</span>
-            </a>
-            <a href="/article-column?type=cests">
-              <img src="img/index_enter_04.jpg" alt="">
-              <span>CEST专题栏</span>
+            <a v-for="(pic, i) in columnbanner" :key="i" :href="pic.链接">
+              <img :src="FILE_URL + pic.图片.url" alt="">
+              <span>{{ pic.标题 }}</span>
             </a>
           </div>
         </div>
@@ -246,21 +234,31 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator';
 import groupBy from 'lodash/groupBy';
-import { getNews, getSportNews, getProducts } from '@/api/article';
+import { getNews, getSportNews, getProducts, getSlider, getColumnbanner, getRightbanner } from '@/api/article';
 
 @Component
 export default class Index extends Vue {
   FILE_URL = process.env.FILE_URL
 
   async asyncData() {
-    let [news, sportNews, products] = await Promise.all([getNews(), getSportNews(), getProducts()]);
+    let [news, sportNews, products, slider, columnbanner, rightbanner] = await Promise.all([
+      getNews(),
+      getSportNews(),
+      getProducts(),
+      getSlider(),
+      getColumnbanner(),
+      getRightbanner()
+    ]);
     if (news.error) return {};
     news = groupBy(news, '类型');
     sportNews = groupBy(sportNews, '类型');
     return {
       news,
       sportNews,
-      products: products.添加产品,
+      products    : products.添加产品,
+      slider      : slider.pics,
+      columnbanner: columnbanner.pics,
+      rightbanner : rightbanner.pics,
     };
   }
 }
