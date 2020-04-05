@@ -81,7 +81,8 @@ export default {
   ** Nuxt.js router
   */
   router: {
-    middleware: [],
+    middleware          : [],
+    linkExactActiveClass: 'active',
   },
 
   /*

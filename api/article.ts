@@ -61,3 +61,7 @@ export function getFriendlinks() {
 export function getSiteinfo() {
   return global.$axios.$get('siteinfo');
 }
+
+export function getMenu() {
+  return global.$axios.$get('menu');
+}
