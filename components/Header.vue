@@ -13,9 +13,9 @@
           v-for="(link, i) in menu"
           :key="i"
           >
-          <NLink :to="link.url">
+          <a :href="link.url" :class="{ active: link.url === currPath }">
             {{ link.title }}
-          </NLink>
+          </a>
         </li>
       </ul>
     </nav>
@@ -36,6 +36,8 @@ export default class Header extends Vue {
     下架: true,
   }
 
+  currPath = ''
+
   menu = []
 
   get headerbanner() {
@@ -43,6 +45,8 @@ export default class Header extends Vue {
   }
 
   async created() {
+    this.currPath = this.$route.path;
+
     const [resBanner, resMenu] = await Promise.all([getHeaderBanner(), getMenu()]);
     if (resBanner.error) return {};
     this.banner = resBanner;

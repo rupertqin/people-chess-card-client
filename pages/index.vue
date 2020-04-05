@@ -242,6 +242,12 @@ export default class Index extends Vue {
     };
   }
 
+  created() {
+    if (process.browser && !window.Swiper) {
+      location.reload();
+    }
+  }
+
   mounted() {
     new window.Swiper('.swiper-container', {
       loop    : true, // 循环模式选项

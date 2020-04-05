@@ -8,7 +8,7 @@
       <div class="products_box">
         <div v-for="(product, i) in data" :key="i" class="products_block">
           <div class="products_block_l">
-            <img :src="FILE_URL + product.logo[0].url" alt="">
+            <img :src="FILE_URL + product.logo.url" alt="">
             <a v-if="product.下载链接" class="donwload" :href="product.下载链接">立即下载</a>
           </div>
           <div class="products_block_r">

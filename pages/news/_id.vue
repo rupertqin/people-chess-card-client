@@ -30,7 +30,8 @@ import { markdown } from '@/utils';
 export default class Index extends Vue {
   async asyncData({ params }) {
     const data = await getOneNews(params.id);
-    data.内容 = markdown(data.内容);
+    debugger;
+    data.内容 = markdown(data.content);
     return {
       data,
     };

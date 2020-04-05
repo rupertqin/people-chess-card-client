@@ -8,7 +8,7 @@ export function getNews(type?) {
 }
 
 export function getOneNews(id) {
-  return global.$axios.$get(`sportnews/${id}`);
+  return global.$axios.$get(`information/${id}`);
 }
 
 export function getSportNews(type?) {
