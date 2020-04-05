@@ -14,7 +14,7 @@
         <NLink
           v-for="(article, i) in newsList"
           :key="i"
-          :to="`/news/${article.id}`"
+          :to="`/sportnews/${article.id}`"
           >
           <div class="news_name">
             <span>[{{ article.类型 }}]</span>{{ article.标题 }}

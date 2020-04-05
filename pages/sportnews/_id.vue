@@ -18,7 +18,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator';
-import { getOneNews } from '@/api/article';
+import { getOneSportNews } from '@/api/article';
 import { markdown } from '@/utils';
 
 @Component({
@@ -29,7 +29,7 @@ import { markdown } from '@/utils';
 })
 export default class Index extends Vue {
   async asyncData({ params }) {
-    const data = await getOneNews(params.id);
+    const data = await getOneSportNews(params.id);
     data.内容 = markdown(data.内容);
     return {
       data,
