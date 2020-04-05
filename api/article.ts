@@ -69,3 +69,7 @@ export function getMenu() {
 export function getFooter() {
   return global.$axios.$get('footer');
 }
+
+export function getCopyright() {
+  return global.$axios.$get('copyright');
+}

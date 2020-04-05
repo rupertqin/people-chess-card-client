@@ -41,14 +41,18 @@ const typeMap = {
 @Component({
   validate({ query }) {
     const type: ColumnType = query.type as ColumnType;
-    console.log('======= type', type);
     return Boolean(typeMap[type]);
   },
 })
 export default class Index extends Vue {
+  type: ColumnType = ColumnType.FAKE
+
   get typeName() {
-    const type: ColumnType = this.$route.query.type as ColumnType;
-    return typeMap[type];
+    return typeMap[this.type];
+  }
+
+  created() {
+    this.type = this.$route.query.type as ColumnType;
   }
 
   async asyncData({ query }) {

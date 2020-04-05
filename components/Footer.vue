@@ -11,8 +11,8 @@
         >{{ link.title }}</a>
     </div>
     <div class="footer_desc">
-      人 民 智 力 竞 技 版 权 所 有，未 经 书 面 授 权 禁 止 使 用<br>
-      Copyright © 2014 by www.people78.cn All Rights Reserved.
+      {{ copyright.copyright1 }}<br>
+      {{ copyright.copyrigh2 }}
     </div>
 
     <div class="footer_plink" v-html="footerInfo" />
@@ -22,7 +22,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator';
-import { getFriendlinks, getFooter } from '@/api/article';
+import { getFriendlinks, getFooter, getCopyright } from '@/api/article';
 import { markdown } from '@/utils';
 
 @Component
@@ -30,11 +30,13 @@ export default class Footer extends Vue {
   FILE_URL = process.env.FILE_URL
   friendlinks = []
   footerInfo = ''
+  copyright = {}
 
   async created() {
-    const [resFl, resFooter] = await Promise.all([getFriendlinks(), getFooter()]);
+    const [resFl, resFooter, resCopyright] = await Promise.all([getFriendlinks(), getFooter(), getCopyright()]);
     if (resFl.error) return {};
     this.friendlinks = resFl.link;
+    this.copyright = resCopyright;
     this.footerInfo = markdown(resFooter.info);
   }
 }
