@@ -3,11 +3,12 @@
     <div class="footer_flinks">
       <a href="https://www.microbeam.cn/" target="_blank">关于我们</a>
       友情链接:
-      <a href="http://www.people.com.cn/" target="_blank">人民网</a>
-      <a href="http://www.peoplecci.com/" target="_blank">人民文创网</a>
-      <a href="http://game.gmw.cn/" target="_blank">光明游戏</a>
-      <a href="http://www.iasac.org.cn/" target="_blank">中国互联网上网服务行业协会</a>
-      <a href="http://www.chinacest.cn/" target="_blank">中国电子竞技娱乐大赛</a>
+      <a
+        v-for="(link, i) in friendlinks"
+        :key="i"
+        :href="link.url"
+        target="_blank"
+        >{{ link.title }}</a>
     </div>
     <div class="footer_desc">
       人 民 智 力 竞 技 版 权 所 有，未 经 书 面 授 权 禁 止 使 用<br>
@@ -26,6 +27,20 @@
   </footer>
 </template>
 
-<script>
-export default { };
+
+<script lang="ts">
+import { Component, Vue } from 'nuxt-property-decorator';
+import { getFriendlinks } from '@/api/article';
+
+@Component
+export default class Footer extends Vue {
+  FILE_URL = process.env.FILE_URL
+  friendlinks = []
+
+  async created() {
+    const result = await getFriendlinks();
+    if (result.error) return {};
+    this.friendlinks = result.link;
+  }
+}
 </script>

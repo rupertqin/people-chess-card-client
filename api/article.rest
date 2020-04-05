@@ -33,3 +33,9 @@ GET http://localhost:1337/rightbanner
 
 ### 
 GET http://localhost:1337/columnbanner
+
+### 
+GET http://localhost:1337/friendlink
+
+### 
+GET http://localhost:1337/siteinfo

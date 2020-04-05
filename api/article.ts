@@ -53,3 +53,11 @@ export function getColumnbanner() {
 export function getRightbanner() {
   return global.$axios.$get('rightbanner');
 }
+
+export function getFriendlinks() {
+  return global.$axios.$get('friendlink');
+}
+
+export function getSiteinfo() {
+  return global.$axios.$get('siteinfo');
+}

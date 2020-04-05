@@ -42,4 +42,4 @@ export default class Header extends Vue {
     this.data = result;
   }
 }
-</script>>
+</script>
