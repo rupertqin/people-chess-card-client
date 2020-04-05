@@ -73,3 +73,15 @@ export function getFooter() {
 export function getCopyright() {
   return global.$axios.$get('copyright');
 }
+
+export function getOneFake(id) {
+  return global.$axios.$get(`fakes/${id}`);
+}
+
+export function getOnePvprule(id) {
+  return global.$axios.$get(`pvprules/${id}`);
+}
+
+export function getOneCest(id) {
+  return global.$axios.$get(`cests/${id}`);
+}

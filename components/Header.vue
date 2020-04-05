@@ -2,7 +2,7 @@
   <div>
     <div class="topboxa">
       <div class="topbox_innera">
-        <img src="img/top_logo.jpg" alt="">
+        <img src="/img/top_logo.jpg" alt="">
         <img v-if="!banner.下架" class="topbox_slogan" :src="headerbanner" alt="">
       </div>
     </div>

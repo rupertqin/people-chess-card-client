@@ -15,12 +15,18 @@ GET http://localhost:1337/product
 
 ### 
 GET http://localhost:1337/fakes
+### 
+GET http://localhost:1337/fakes/1
 
 ### 
 GET http://localhost:1337/pvprules
+### 
+GET http://localhost:1337/pvprules/1
 
 ### 
 GET http://localhost:1337/cests
+### 
+GET http://localhost:1337/cests/1
 
 ### 
 GET http://localhost:1337/headerbanner
