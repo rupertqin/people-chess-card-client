@@ -65,3 +65,7 @@ export function getSiteinfo() {
 export function getMenu() {
   return global.$axios.$get('menu');
 }
+
+export function getFooter() {
+  return global.$axios.$get('footer');
+}

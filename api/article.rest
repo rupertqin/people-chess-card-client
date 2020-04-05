@@ -41,3 +41,5 @@ GET http://localhost:1337/friendlink
 GET http://localhost:1337/siteinfo
 ### 
 GET http://localhost:1337/menu
+### 
+GET http://localhost:1337/footer
