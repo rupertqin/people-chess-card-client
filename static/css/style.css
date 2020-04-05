@@ -111,13 +111,18 @@ html {
 }
 
 .topbox_inner img{
+    float: left;
     position: relative;
-    top:40%;
+    top:50%;
     transform: translateY(-50%);
 }
 
+.topbox_inner img:nth-child(2){
+    float: right;
+}
+
 .topbox_inner .topbox_slogan{
-    margin: 20px 0px 0 70px;
+    /*margin: 20px 0px 0 70px;*/
 }
 
 .topnav{
@@ -521,7 +526,6 @@ html {
 
 
 /*------------------------新闻列表---------------------------*/
-
 .nav_s{
     margin: 30px auto 0;
     width: 1400px;
@@ -532,6 +536,54 @@ html {
 
 .nav_s a:hover{
     text-decoration: underline;
+}
+
+.nav_s_list{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 30px auto 0;
+    width: 1400px;
+    height: auto;
+    font-size: 18px;
+    color: #989898;
+}
+
+
+.nav_s_r a{
+    display: block;
+    float: right;
+    margin: 0 0 0 10px;
+    width: 150px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-weight: bold;
+    border: 2px solid #e50007;
+    border-bottom: none;
+    text-decoration: none;
+}
+
+.nav_s_r {
+    width: 400px;
+    border-bottom: 3px solid #d7000a;
+}
+
+.nav_s_r .active, .nav_s_r a:hover{
+    background: #d7000a;
+    color: #fff;
+    text-decoration: none;
+    animation: nav_s_r .5s ease-in-out infinite alternate;
+}
+
+@keyframes nav_s_r {
+  from {
+  background: #e50007;
+  }
+
+  to {
+  background: #a90511;
+  }
 }
 
 
@@ -721,6 +773,7 @@ html {
 }
 
 .products .products_block_l a{
+    display: none;
     margin: 20px auto 0;
     width: 110px;
     height: 40px;
@@ -1151,7 +1204,7 @@ footer{
 }
 
 .footer_flinks{
-    padding: 0 20px;
+    padding: 20px 20px 0 20px;
 }
 
 .footer_flinks a{
@@ -1166,12 +1219,17 @@ footer{
 }
 
 .footer_plink {
-    margin: 20px 0 0;
+    padding: 0 0 20px;
 }
 
 .footer_plink a{
     padding: 0 14px;
 }
+
+.footer_plink img{
+    max-width: 30px;
+}
+
 
 /*----------------------------------------------*/
 .mlnone{
@@ -1235,13 +1293,18 @@ footer{
 }
 
 .topbox_innera img{
+    float: left;
     position: relative;
-    top:40%;
+    top:50%;
     transform: translateY(-50%);
 }
 
+.topbox_innera img:nth-child(2){
+    float: right;
+}
+
 .topbox_innera .topbox_slogan{
-    margin: 20px 0px 0 70px;
+    /*margin: 20px 0px 0 70px;*/
 }
 
 

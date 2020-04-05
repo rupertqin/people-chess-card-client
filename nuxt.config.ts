@@ -44,12 +44,7 @@ export default {
   /*
   ** Global CSS
   */
-  css    : [
-    {
-      src : '@/assets/css/common.less',
-      lang: 'less',
-    }
-  ],
+  css    : [],
   /*
   ** Plugins to load before mounting the App
   */
