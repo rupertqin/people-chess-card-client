@@ -204,11 +204,17 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator';
 import groupBy from 'lodash/groupBy';
-import { getNews, getSportNews, getProducts, getSlider, getColumnbanner, getRightbanner } from '@/api/article';
+import { getNews, getSportNews, getProducts, getSlider, getColumnbanner, getRightbanner, getSiteinfo } from '@/api/article';
+
 
 @Component({
   head() {
     return {
+      title: this.siteInfo.title,
+      meta : [
+        { hid: 'keyword', name: 'keyword', content: this.siteInfo.keyword },
+        { hid: 'description', name: 'description', content: this.siteInfo.description }
+      ],
       script: [
         { src: '/js/jquery-3.4.1.min.js'},
         { src: '/js/bootstrap.min.js'},
@@ -221,13 +227,14 @@ export default class Index extends Vue {
   FILE_URL = process.env.FILE_URL
 
   async asyncData() {
-    let [news, sportNews, products, slider, columnbanner, rightbanner] = await Promise.all([
+    let [news, sportNews, products, slider, columnbanner, rightbanner, siteInfo] = await Promise.all([
       getNews(),
       getSportNews(),
       getProducts(),
       getSlider(),
       getColumnbanner(),
-      getRightbanner()
+      getRightbanner(),
+      getSiteinfo()
     ]);
     if (news.error) return {};
     news = groupBy(news, '类型');
@@ -235,6 +242,7 @@ export default class Index extends Vue {
     return {
       news,
       sportNews,
+      siteInfo,
       products    : products.添加产品,
       slider      : slider.pics,
       columnbanner: columnbanner.pics,
