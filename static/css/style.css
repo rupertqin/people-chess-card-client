@@ -773,7 +773,7 @@ html {
 }
 
 .products .products_block_l a{
-    display: none;
+    display: block;
     margin: 20px auto 0;
     width: 110px;
     height: 40px;

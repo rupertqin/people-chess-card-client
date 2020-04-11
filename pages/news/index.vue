@@ -1,7 +1,17 @@
 <template>
   <div>
-    <div class="nav_s">
-      <a href="index.html">人民网</a> >> <a href="/news">动态资讯</a>
+    <div class="nav_s_list">
+      <div class="nav_s_l">
+        <a href="/">首页</a> >> <a href="/news">动态资讯</a>
+      </div>
+      <div class="nav_s_r">
+        <nuxt-link to="/news?type=产业动态">
+          产业动态
+        </nuxt-link>
+        <nuxt-link to="/news?type=热点资讯">
+          热点资讯
+        </nuxt-link>
+      </div>
     </div>
     <div class="newslist">
       <div class="block_title">
@@ -33,10 +43,12 @@
 import { Component, Vue } from 'nuxt-property-decorator';
 import { getNews } from '@/api/article';
 
-@Component
+@Component({
+  watchQuery: true,
+})
 export default class Index extends Vue {
-  async asyncData() {
-    const newsList = await getNews();
+  async asyncData({ query }) {
+    const newsList = await getNews(query.type);
     return {
       newsList,
     };

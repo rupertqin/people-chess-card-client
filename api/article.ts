@@ -1,8 +1,8 @@
-export function getNews(type?) {
+export function getNews(类型?) {
   return global.$axios.$get(
     'information',
     {
-      params: { type },
+      params: { 类型 },
     }
   );
 }
