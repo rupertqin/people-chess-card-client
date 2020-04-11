@@ -2,7 +2,10 @@ export function getNews(类型?) {
   return global.$axios.$get(
     'information',
     {
-      params: { 类型 },
+      params: {
+        类型,
+        _sort: '权重:DESC',
+      },
     }
   );
 }
@@ -15,7 +18,10 @@ export function getSportNews(类型?) {
   return global.$axios.$get(
     'sportnews',
     {
-      params: { 类型 },
+      params: {
+        类型,
+        _sort: '权重:DESC',
+      },
     }
   );
 }

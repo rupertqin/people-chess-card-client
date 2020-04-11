@@ -1,4 +1,6 @@
 ###
+GET http://localhost:1337/information?_sort=权重:DESC
+###
 GET http://localhost:1337/information?类型=热点资讯
 
 ### 
