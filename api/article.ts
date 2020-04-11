@@ -11,11 +11,11 @@ export function getOneNews(id) {
   return global.$axios.$get(`information/${id}`);
 }
 
-export function getSportNews(type?) {
+export function getSportNews(类型?) {
   return global.$axios.$get(
     'sportnews',
     {
-      params: { type },
+      params: { 类型 },
     }
   );
 }
