@@ -50,7 +50,7 @@
                 热点资讯
               </div>
               <div class="s_block_title_more">
-                <a href="/news">MORE</a>
+                <a href="/news?type=热点资讯">MORE</a>
               </div>
             </div>
 
@@ -72,7 +72,7 @@
                 产业动态
               </div>
               <div class="s_block_title_more">
-                <a href="/news">MORE</a>
+                <a href="/news?type=产业动态">MORE</a>
               </div>
             </div>
 
@@ -110,7 +110,7 @@
                 行业新闻
               </div>
               <div class="s_block_title_more">
-                <a href="/sportnews">MORE</a>
+                <a href="/sportnews?type=行业新闻">MORE</a>
               </div>
             </div>
 
@@ -133,7 +133,7 @@
                 人民智力竞技
               </div>
               <div class="s_block_title_more">
-                <a href="sportnews">MORE</a>
+                <a href="/sportnews?type=人民智力竞技">MORE</a>
               </div>
             </div>
 
