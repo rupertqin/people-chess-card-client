@@ -1,4 +1,7 @@
 import marked from 'marked';
+import moment from 'moment';
+
+
 export function markdown(string) {
   marked.setOptions({
     baseUrl     : process.env.FILE_URL,
@@ -18,4 +21,8 @@ export function markdown(string) {
     xhtml       : false,
   });
   return marked(string);
+}
+
+export function YYYYMMDD(date) {
+  return moment(date).format('YYYY年MM月DD日');
 }

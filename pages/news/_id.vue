@@ -8,7 +8,7 @@
       <div class="newsdetail_box">
         <div class="newsdetail_title">
           {{ data.标题 }}
-          <span>{{ data.updated_at.slice(0,10) }}</span>
+          <span>{{ data.updated_at | YYYYMMDD }}</span>
         </div>
         <div class="newsdetail_cont" v-html="data.内容" />
       </div>

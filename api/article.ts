@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 export async function getNews(类型?) {
   const news = await global.$axios.$get(
     'information',
@@ -14,8 +15,10 @@ export async function getNews(类型?) {
   }));
 }
 
-export function getOneNews(id) {
-  return global.$axios.$get(`information/${id}`);
+export async function getOneNews(id) {
+  const article: any = await global.$axios.$get(`information/${id}`);
+  article.updated_at = article.publish_at || article.updated_at;
+  return article;
 }
 
 export async function getSportNews(类型?) {
@@ -34,8 +37,10 @@ export async function getSportNews(类型?) {
   }));
 }
 
-export function getOneSportNews(id) {
-  return global.$axios.$get(`sportnews/${id}`);
+export async function getOneSportNews(id) {
+  const article: any = await global.$axios.$get(`sportnews/${id}`);
+  article.updated_at = article.publish_at || article.updated_at;
+  return article;
 }
 
 export function getProducts() {
@@ -99,14 +104,20 @@ export function getCopyright() {
   return global.$axios.$get('copyright');
 }
 
-export function getOneFake(id) {
-  return global.$axios.$get(`fakes/${id}`);
+export async function getOneFake(id) {
+  const article: any = await global.$axios.$get(`fakes/${id}`);
+  article.updated_at = article.publish_at || article.updated_at;
+  return article;
 }
 
-export function getOnePvprule(id) {
-  return global.$axios.$get(`pvprules/${id}`);
+export async function getOnePvprule(id) {
+  const article: any = await global.$axios.$get(`pvprules/${id}`);
+  article.updated_at = article.publish_at || article.updated_at;
+  return article;
 }
 
-export function getOneCest(id) {
-  return global.$axios.$get(`cests/${id}`);
+export async function getOneCest(id) {
+  const article: any = await global.$axios.$get(`cests/${id}`);
+  article.updated_at = article.publish_at || article.updated_at;
+  return article;
 }

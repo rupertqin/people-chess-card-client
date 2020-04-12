@@ -57,7 +57,7 @@
             <div class="clearfix" />
 
             <div class="news_cont">
-              <NLink v-for="(article, i) in news.热点资讯" :key="i" :to="`news/${article.id}`">
+              <NLink v-for="(article, i) in news.热点资讯.slice(0,7)" :key="i" :to="`news/${article.id}`">
                 <div class="news_cont_name">
                   {{ article.标题 }}
                 </div>
@@ -79,7 +79,7 @@
             <div class="clearfix" />
 
             <div class="news_cont">
-              <NLink v-for="(article, i) in news.产业动态" :key="i" :to="`news/${article.id}`">
+              <NLink v-for="(article, i) in news.产业动态.slice(0,7)" :key="i" :to="`news/${article.id}`">
                 <div class="news_cont_name">
                   {{ article.标题 }}
                 </div>
@@ -117,7 +117,7 @@
             <div class="clearfix" />
 
             <div class="news_cont">
-              <NLink v-for="(article, i) in sportNews.行业新闻" :key="i" :to="`sportnews/${article.id}`">
+              <NLink v-for="(article, i) in sportNews.行业新闻.slice(0,7)" :key="i" :to="`sportnews/${article.id}`">
                 <div class="news_cont_name">
                   {{ article.标题 }}
                 </div>
@@ -140,7 +140,7 @@
             <div class="clearfix" />
 
             <div class="news_cont">
-              <NLink v-for="(article, i) in sportNews.人民智力竞技" :key="i" :to="`sportnews/${article.id}`">
+              <NLink v-for="(article, i) in sportNews.人民智力竞技.slice(0,7)" :key="i" :to="`sportnews/${article.id}`">
                 <div class="news_cont_name">
                   {{ article.标题 }}
                 </div>
@@ -172,7 +172,7 @@
             </div>
             <div class="clearfix" />
             <div class="game_box">
-              <a v-for="(product, i) in products" :key="i" href="/products">
+              <a v-for="(product, i) in products.slice(0,7)" :key="i" href="/products">
                 <div class="game_box_l">
                   <img :src="FILE_URL + product.logo.url" alt="">
                 </div>
@@ -188,7 +188,7 @@
 
 
           <div class="index_right_enter">
-            <a v-for="(pic, i) in columnbanner" :key="i" :href="pic.链接">
+            <a v-for="(pic, i) in columnbanner.slice(0,7)" :key="i" :href="pic.链接">
               <img :src="FILE_URL + pic.图片.url" alt="">
               <span>{{ pic.标题 }}</span>
             </a>
