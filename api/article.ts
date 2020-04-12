@@ -48,8 +48,19 @@ export enum ColumnType {
   CEST = 'cests'
 }
 
-export function getColumns(type: ColumnType = ColumnType.FAKE) {
-  return global.$axios.$get(type);
+export async function getColumns(type: ColumnType = ColumnType.FAKE) {
+  const news = await global.$axios.$get(
+    type,
+    {
+      params: {
+        _sort: '权重:DESC,publish_at:DESC,updated_at:DESC',
+      },
+    }
+  );
+  return news.map(n => ({
+    ...n,
+    updated_at: n.publish_at || n.updated_at,
+  }));
 }
 
 export function getHeaderBanner() {
