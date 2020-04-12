@@ -7,7 +7,7 @@ GET http://localhost:1337/information?类型=热点资讯
 GET http://localhost:1337/information/4
 
 ###
-GET http://localhost:1337/sportnews?类型=行业新闻
+GET http://localhost:1337/sportnews?类型=行业新闻&_sort=权重:DESC,updated_at:DESC
 
 ### 
 GET http://localhost:1337/sportnews/1
