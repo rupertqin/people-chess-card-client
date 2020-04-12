@@ -13,4 +13,7 @@ export default {
   END_LOADING(state) {
     state.isLoading = false;
   },
+  SET_SITE_INFO(state, obj) {
+    state.siteInfo = obj;
+  },
 };

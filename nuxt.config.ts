@@ -81,7 +81,7 @@ export default {
   ** Nuxt.js router
   */
   router: {
-    middleware          : [],
+    middleware          : ['initData'],
     linkExactActiveClass: 'active',
   },
 
@@ -138,6 +138,11 @@ export default {
       autoprefixer: {
         browsers: ['last 3 versions'],
       },
+    },
+    extend(config) {
+      config.node = {
+        fs: 'empty',
+      };
     },
   },
 };

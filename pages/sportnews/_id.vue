@@ -29,7 +29,9 @@ import { markdown } from '@/utils';
 })
 export default class Index extends Vue {
   async asyncData({ params }) {
-    const data = await getOneSportNews(params.id);
+    const [data] = await Promise.all([
+      getOneSportNews(params.id)
+    ]);
     data.内容 = markdown(data.内容);
     return {
       data,
