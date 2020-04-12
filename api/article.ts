@@ -18,16 +18,20 @@ export function getOneNews(id) {
   return global.$axios.$get(`information/${id}`);
 }
 
-export function getSportNews(类型?) {
-  return global.$axios.$get(
+export async function getSportNews(类型?) {
+  const news = await global.$axios.$get(
     'sportnews',
     {
       params: {
         类型,
-        _sort: '权重:DESC,updated_at:DESC',
+        _sort: '权重:DESC,publish_at:DESC,updated_at:DESC',
       },
     }
   );
+  return news.map(n => ({
+    ...n,
+    updated_at: n.publish_at || n.updated_at,
+  }));
 }
 
 export function getOneSportNews(id) {
