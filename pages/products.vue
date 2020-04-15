@@ -33,7 +33,7 @@ export default class Index extends Vue {
   async asyncData() {
     const data = await getProducts();
     return {
-      data: data.添加产品,
+      data,
     };
   }
 }
