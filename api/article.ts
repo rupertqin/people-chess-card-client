@@ -43,8 +43,9 @@ export async function getOneSportNews(id) {
   return article;
 }
 
-export function getProducts() {
-  return global.$axios.$get('product');
+export async function getProducts() {
+  const { 添加产品 } = await global.$axios.$get('product');
+  return 添加产品.filter(p => p.logo);
 }
 
 export enum ColumnType {

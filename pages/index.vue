@@ -236,7 +236,7 @@ export default class Index extends Vue {
     return {
       news,
       sportNews,
-      products    : products.添加产品,
+      products,
       slider      : slider.pics,
       columnbanner: columnbanner.pics,
       rightbanner : rightbanner.pics,
