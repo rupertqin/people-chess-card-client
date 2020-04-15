@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="nav_s">
-      <a href="index.html">人民网</a> >> <a :href="`/${type}`">{{ name }}</a>
+      <a href="/">人民网</a> >> <a :href="`/${type}`">{{ name }}</a>
     </div>
     <div class="newslist">
       <div class="block_title">

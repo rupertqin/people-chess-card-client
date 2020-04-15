@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="nav_s">
-      <a href="index.html">人民网</a> >> <a href="/news">动态资讯</a> >> 新闻详情
+      <a href="/">人民网</a> >> <a href="/news">动态资讯</a>
     </div>
 
     <div class="newsdetail">

@@ -5,11 +5,11 @@
         <a href="/">首页</a> >> <a href="/sportnews">智力竞技</a>
       </div>
       <div class="nav_s_r">
-        <nuxt-link to="/sportnews?type=行业新闻">
-          行业新闻
-        </nuxt-link>
         <nuxt-link to="/sportnews?type=人民智力竞技">
           人民智力竞技
+        </nuxt-link>
+        <nuxt-link to="/sportnews?type=行业新闻">
+          行业新闻
         </nuxt-link>
       </div>
     </div>
