@@ -210,6 +210,9 @@ import { getNews, getSportNews, getProducts, getSlider, getColumnbanner, getRigh
 @Component({
   head() {
     return {
+      meta: [
+        { hid: 'viewport', name: 'viewport', content: 'width=1400, initial-scale=.29, shrink-to-fit=no' }
+      ],
       script: [
         { src: '/js/jquery-3.4.1.min.js'},
         { src: '/js/bootstrap.min.js'},

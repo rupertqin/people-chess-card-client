@@ -36,6 +36,9 @@ export default {
     link : [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ],
+    meta: [
+      { hid: 'viewport', name: 'viewport', content: 'width=device-width, initial-scale=1, shrink-to-fit=no' }
+    ],
   },
   /*
   ** Customize the progress-bar color
