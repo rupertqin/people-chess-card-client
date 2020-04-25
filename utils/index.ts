@@ -3,6 +3,7 @@ import moment from 'moment';
 
 
 export function markdown(string) {
+  return string;
   marked.setOptions({
     baseUrl     : process.env.FILE_URL,
     breaks      : true,
