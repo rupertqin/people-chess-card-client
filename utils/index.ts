@@ -3,7 +3,8 @@ import moment from 'moment';
 
 
 export function markdown(string) {
-  return string;
+  return string.replace(/<img [^>]*src=['"]([^'"]+)[^>]*>/gi, `<img src="${process.env.FILE_URL}/$1">`);
+
   marked.setOptions({
     baseUrl     : process.env.FILE_URL,
     breaks      : true,
