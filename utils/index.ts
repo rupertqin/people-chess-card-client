@@ -2,7 +2,7 @@ import marked from 'marked';
 import moment from 'moment';
 
 
-export function markdown(string) {
+export function markdown(string = '') {
   return string.replace(/<img [^>]*src=['"]([^'"]+)[^>]*>/gi, `<img src="${process.env.FILE_URL}/$1">`);
 
   marked.setOptions({
