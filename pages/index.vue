@@ -10,7 +10,7 @@
           <div class="swiper-wrapper">
             <div v-for="(pic, i) in slider" :key="i" class="swiper-slide">
               <a :href="pic.链接">
-                <img :src="FILE_URL + pic.图片.url">
+                <img :src="pic.图片 ? FILE_URL + pic.图片.url : ''">
               </a>
             </div>
           </div>
@@ -21,7 +21,7 @@
 
         <div class="index_banner_box_r">
           <a v-for="(pic, i) in rightbanner" :key="i" :href="pic.链接">
-            <img :src="FILE_URL + pic.图片.url" alt="">
+            <img :src="pic.图片 ? FILE_URL + pic.图片.url : ''" alt="">
           </a>
         </div>
       </div>
@@ -174,7 +174,7 @@
             <div class="game_box">
               <a v-for="(product, i) in products.slice(0,7)" :key="i" href="/products">
                 <div class="game_box_l">
-                  <img :src="FILE_URL + product.logo.url" alt="">
+                  <img :src="product.logo ? FILE_URL + product.logo.url : ''" alt="">
                 </div>
                 <div class="game_box_r">
                   <div class="game_box_name">{{ product.名称 }}</div>
@@ -189,7 +189,7 @@
 
           <div class="index_right_enter">
             <a v-for="(pic, i) in columnbanner.slice(0,7)" :key="i" :href="pic.链接">
-              <img :src="FILE_URL + pic.图片.url" alt="">
+              <img :src="pic.图片 ? FILE_URL + pic.图片.url : ''" alt="">
               <span>{{ pic.标题 }}</span>
             </a>
           </div>
