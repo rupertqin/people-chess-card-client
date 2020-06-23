@@ -1,13 +1,13 @@
 <template>
   <div>
-    <div class="topboxa">
-      <div class="topbox_innera">
+    <div class="topbox">
+      <div class="topbox_inner">
         <img src="http://people78.cn/img/top_logo.jpg" alt="">
         <img v-if="!banner.下架" class="topbox_slogan" :src="headerbanner" alt="">
       </div>
     </div>
 
-    <nav class="topnava">
+    <nav class="topnav">
       <ul>
         <li
           v-for="(link, i) in menu"

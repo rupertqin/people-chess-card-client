@@ -15,13 +15,13 @@
     "lodash": "^4.17.15",
     "marked": "^0.8.2",
     "nuxt": "^2.12.0",
-    "nuxt-property-decorator": "^2.5.0"
+    "nuxt-property-decorator": "^2.5.0",
+    "wechat-jssdk": "^5.0.4"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^2.0.2",
     "@nuxtjs/eslint-config-typescript": "^1.0.2",
     "@nuxtjs/eslint-module": "^1.1.0",
-    "@smartsalary/eslint-config-vue": "latest",
     "@types/jest": "^25.1.4",
     "@vue/test-utils": "^1.0.0-beta.32",
     "babel-eslint": "^10.1.0",

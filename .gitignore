@@ -93,3 +93,4 @@ sw.*
 
 yarn.lock
 .history
+data.json
