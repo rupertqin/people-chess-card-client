@@ -19,7 +19,7 @@ const {
 } = process.env;
 const BASE_HOST = MOCK ? MOCK_SERVER_URL : BASE_URL;
 const BROWSER_BASE_HOST = MOCK ? MOCK_SERVER_URL : BROWSER_BASE_URL;
-const baseURL = `${BASE_HOST}`;
+const baseURL = `${BROWSER_BASE_HOST}`;
 const browserBaseURL = `${BROWSER_BASE_HOST}`;
 console.log(`BROWSER_BASE_HOST: ${BROWSER_BASE_HOST}`);
 console.log(`BROWSER_BASE_URL: ${BROWSER_BASE_URL}`);
