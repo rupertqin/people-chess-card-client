@@ -78,7 +78,8 @@ export default {
   ** serverMiddleware
   */
   serverMiddleware: [
-    { path: '/ping', handler: '@/serverMiddleware/ping.ts' }
+    { path: '/ping', handler: '@/serverMiddleware/ping.ts' },
+    { path: '/get-sign', handler: '@/serverMiddleware/getSign.ts' }
   ],
 
   /*
