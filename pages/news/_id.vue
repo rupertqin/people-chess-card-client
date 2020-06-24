@@ -54,7 +54,7 @@ export default class Index extends Vue {
     wechatObj.initialize()
       .then(w => {
         //set up your share info, "w" is the same instance as "wechatObj"
-        const desc = getChinese(self.$data.data.内容).slice(0, 10) + ' --人民棋牌 --人民网';
+        const desc = getChinese(self.$data.data.内容).slice(0, 20) + '... --人民棋牌 --人民网';
         wechatObj.shareOnChat({
           desc,
           type: 'link',
