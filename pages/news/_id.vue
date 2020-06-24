@@ -49,7 +49,7 @@ export default class Index extends Vue {
     console.log('===== data：', self.$data)
     const wechatObj = new WechatJSSDK({
       ...this.$data.sign,
-      debug: true,
+      debug: process.env.NODE_ENV === 'development',
     })
     wechatObj.initialize()
       .then(w => {
