@@ -58,8 +58,8 @@ export default class Index extends Vue {
           type: 'link',
           title: self.$data.data.标题,
           link: location.href,
-          imgUrl: 'http://people78.cn/img/top_logo.jpg',
-          desc: self.$data.data.标题.slice(0, 20),
+          imgUrl: 'https://people78.cn/img/logo.png',
+          desc: self.$data.data.内容.slice(0, 10) + '--人民棋牌 --人民网',
           success: function (){},
           cancel: function (){}
         });
@@ -69,8 +69,8 @@ export default class Index extends Vue {
           type: 'link',
           title: self.$data.data.标题,
           link: location.href,
-          desc: self.$data.data.标题.slice(0, 20),
-          imgUrl: 'http://people78.cn/img/top_logo.jpg',
+          desc: self.$data.data.内容.slice(0, 10) + '--人民棋牌 --人民网',
+          imgUrl: 'https://people78.cn/img/logo.png',
         });
       })
       .catch(err => {
