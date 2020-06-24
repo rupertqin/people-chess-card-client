@@ -18,8 +18,9 @@
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator';
-import { getOneNews } from '@/api/article';
+import { getOneNews, genSign } from '@/api/article';
 import { markdown } from '@/utils';
+import WechatJSSDK from 'wechat-jssdk/dist/client.umd';
 
 @Component({
   validate({ params }) {
@@ -36,6 +37,44 @@ export default class Index extends Vue {
     return {
       data,
     };
+  }
+
+  async mounted() {
+    const { result } = await genSign(location.href)
+    console.log('======', result)
+    const wechatObj = new WechatJSSDK({
+      ...result,
+      debug: true,
+    })
+    const self= this;
+    wechatObj.initialize()
+      .then(w => {
+        //set up your share info, "w" is the same instance as "wechatObj"
+        wechatObj.shareOnChat({
+          type: 'link',
+          title: self.$data.标题,
+          link: location.href,
+          imgUrl: 'http://people78.cn/img/top_logo.jpg',
+          desc: self.$data.标题.slice(0, 20),
+          success: function (){},
+          cancel: function (){}
+        });
+        //customize share on timeline info
+        //sugar method
+        wechatObj.shareOnMoment({
+          type: 'link',
+          title: self.$data.标题,
+          link: location.href,
+          desc: self.$data.标题.slice(0, 20),
+          imgUrl: 'http://people78.cn/img/top_logo.jpg',
+        });
+      })
+      .catch(err => {
+        console.error(err);
+      });
+    // window.wx.ready(function() {
+
+    // }
   }
 }
 </script>

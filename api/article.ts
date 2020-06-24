@@ -122,3 +122,8 @@ export async function getOneCest(id) {
   article.updated_at = article.publish_at || article.updated_at;
   return article;
 }
+
+export async function genSign(url) {
+  const result = await global.$axios.$get(`${process.env.ORIGIN}/get-sign?url=${url}`);
+  return result;
+}
