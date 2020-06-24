@@ -29,33 +29,37 @@ import WechatJSSDK from 'wechat-jssdk/dist/client.umd';
   },
 })
 export default class Index extends Vue {
-  async asyncData({ params }) {
-    const [data] = await Promise.all([
-      getOneNews(params.id)
+  async asyncData({ params, req }) {
+    const url = process.browser ? location.href : process.env.ORIGIN + req.url
+    console.log('==== url', url)
+    const [data, sign] = await Promise.all([
+      getOneNews(params.id),
+      genSign(url)
     ]);
     data.内容 = markdown(data.内容);
     return {
       data,
+      sign: sign.result,
     };
   }
 
   async mounted() {
-    const { result } = await genSign(location.href)
-    console.log('======', result)
+    const self= this;
+    console.log('======', this.$data.sign)
+    console.log('===== data：', self.$data)
     const wechatObj = new WechatJSSDK({
-      ...result,
+      ...this.$data.sign,
       debug: true,
     })
-    const self= this;
     wechatObj.initialize()
       .then(w => {
         //set up your share info, "w" is the same instance as "wechatObj"
         wechatObj.shareOnChat({
           type: 'link',
-          title: self.$data.标题,
+          title: self.$data.data.标题,
           link: location.href,
           imgUrl: 'http://people78.cn/img/top_logo.jpg',
-          desc: self.$data.标题.slice(0, 20),
+          desc: self.$data.data.标题.slice(0, 20),
           success: function (){},
           cancel: function (){}
         });
@@ -63,14 +67,14 @@ export default class Index extends Vue {
         //sugar method
         wechatObj.shareOnMoment({
           type: 'link',
-          title: self.$data.标题,
+          title: self.$data.data.标题,
           link: location.href,
-          desc: self.$data.标题.slice(0, 20),
+          desc: self.$data.data.标题.slice(0, 20),
           imgUrl: 'http://people78.cn/img/top_logo.jpg',
         });
       })
       .catch(err => {
-        console.error(err);
+        console.error('===== error', err);
       });
     // window.wx.ready(function() {
 
