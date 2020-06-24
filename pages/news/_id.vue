@@ -19,7 +19,7 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator';
 import { getOneNews, genSign } from '@/api/article';
-import { markdown } from '@/utils';
+import { markdown, getChinese } from '@/utils';
 import WechatJSSDK from 'wechat-jssdk/dist/client.umd';
 
 @Component({
@@ -54,22 +54,23 @@ export default class Index extends Vue {
     wechatObj.initialize()
       .then(w => {
         //set up your share info, "w" is the same instance as "wechatObj"
+        const desc = getChinese(self.$data.data.内容).slice(0, 10) + ' --人民棋牌 --人民网';
         wechatObj.shareOnChat({
+          desc,
           type: 'link',
           title: self.$data.data.标题,
           link: location.href,
           imgUrl: 'https://people78.cn/img/logo.png',
-          desc: self.$data.data.内容.slice(0, 10) + '--人民棋牌 --人民网',
           success: function (){},
           cancel: function (){}
         });
         //customize share on timeline info
         //sugar method
         wechatObj.shareOnMoment({
+          desc,
           type: 'link',
           title: self.$data.data.标题,
           link: location.href,
-          desc: self.$data.data.内容.slice(0, 10) + '--人民棋牌 --人民网',
           imgUrl: 'https://people78.cn/img/logo.png',
         });
       })

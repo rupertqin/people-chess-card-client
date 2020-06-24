@@ -28,3 +28,13 @@ export function markdown(string = '') {
 export function YYYYMMDD(date) {
   return moment(date).format('YYYY年MM月DD日');
 }
+
+export function getChinese(strValue) {  
+  if(strValue!= null && strValue!= ""){  
+    var reg = /[\u4e00-\u9fa5]/g;   
+    return strValue.match(reg).join("");  
+  }  
+  else  
+    return "";  
+}  
+
