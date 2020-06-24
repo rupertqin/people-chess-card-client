@@ -19,7 +19,7 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator';
 import { getOneSportNews } from '@/api/article';
-import { markdown } from '@/utils';
+import { markdown, share } from '@/utils';
 
 @Component({
   validate({ params }) {
@@ -36,6 +36,9 @@ export default class Index extends Vue {
     return {
       data,
     };
+  }
+  mounted() {
+    share(this.$data.data.标题, this.$data.data.内容);
   }
 }
 </script>
