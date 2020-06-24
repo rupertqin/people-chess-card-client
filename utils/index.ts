@@ -44,7 +44,7 @@ export async function share(title, desc) {
   const { result: sign } = await genSign(location.href);
   const wechatObj = new WechatJSSDK({
     ...sign,
-    debug: process.env.NODE_ENV !== 'development',
+    debug: process.env.NODE_ENV === 'development',
   })
   wechatObj.initialize()
     .then(w => {

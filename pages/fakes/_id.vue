@@ -19,7 +19,7 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator';
 import { getOneFake, getOnePvprule, getOneCest } from '@/api/article';
-import { markdown } from '@/utils';
+import { markdown, share } from '@/utils';
 
 const typeMap = {
   fakes   : '打假专栏',
@@ -61,6 +61,9 @@ export default class Index extends Vue {
     const data = await getAPIFn(type)(params.id);
     data.内容 = markdown(data.内容);
     return { data, type, name };
+  }
+  mounted() {
+    share(this.$data.data.标题, this.$data.data.内容);
   }
 }
 </script>
