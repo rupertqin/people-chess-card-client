@@ -1171,7 +1171,9 @@ footer{
     height: auto;
     background: #f0eff4;
     text-align: center;
-    line-height: 22px;
+    line-height: 180%;
+    font-size: 9px;
+    padding: 0 10px;
 }
 
 .footer_box{
@@ -1183,7 +1185,7 @@ footer{
 }
 
 .footer_flinks{
-    /*padding: 0 20px;*/
+    padding: 20px 0;
 }
 
 .footer_flinks a{
@@ -1198,8 +1200,7 @@ footer{
 }
 
 .footer_plink {
-    margin: 10px 0;
-    width: 100%;
+    padding: 20px 0;
     display: flex;
     align-items: center;
     justify-content: center;
